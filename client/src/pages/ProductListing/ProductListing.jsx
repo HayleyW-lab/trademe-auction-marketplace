@@ -3,7 +3,7 @@ import "./ProductListing.css";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 // temporary fixed listing id for poc demo; replace with dynamic route param later
-const LISTING_URL = `${API_BASE_URL}/api/listings/1`;
+const LISTING_URL = `${API_BASE_URL}/api/listings/69be770b9f6980bd1337bd6b`;
 
 function ProductListing() {
   const [listing, setListing] = useState(null);

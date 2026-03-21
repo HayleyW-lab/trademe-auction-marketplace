@@ -1,15 +1,20 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const listingRoutes = require("./routes/listingRoutes");
 
 dotenv.config();
+
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Serving is running..");
+  res.send("Server is running.");
 });
+
+app.use("/api/listings", listingRoutes);
 
 const PORT = process.env.PORT || 3000;
 

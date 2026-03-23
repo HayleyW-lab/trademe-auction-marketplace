@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
+  const navigate = useNavigate();
 
   const suggestions = [
     { type: "Recent", items: ["wooden desk"] },
@@ -40,7 +42,14 @@ function Header() {
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
             />
-            <button className={`search-btn ${searchQuery ? "active" : ""}`}>
+            <button
+              className={`search-btn ${searchQuery ? "active" : ""}`}
+              onClick={() => {
+                if (searchQuery) {
+                  navigate(`/searchresults?q=${searchQuery}`);
+                }
+              }}
+            >
               Search
             </button>
           </div>

@@ -1,0 +1,30 @@
+.searchResultsPage
+{
+    margin-top: 200px;
+    padding: 16px 24px 0 24px;
+    font-family: "Inter", sans-serif;
+}
+
+.searchHeader
+{
+    padding: 15px;
+    font-size: 15px;
+}
+
+.category
+{
+    color: rgb(74, 84, 211);
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.searchResultsMain
+{
+    
+}
+
+.categories-filters
+{
+   
+}

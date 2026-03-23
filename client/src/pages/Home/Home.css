@@ -134,3 +134,41 @@
 .filter-select:focus {
   border-color: #4b61d1;
 }
+
+@media (max-width: 768px) {
+  .home-main {
+    margin-top: 200px;
+    padding: 0 12px;
+  }
+
+  .category-tabs {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .category-tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .category-tab {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}

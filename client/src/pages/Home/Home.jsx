@@ -4,11 +4,11 @@ import Footer from "../../common/Footer";
 import "./Home.css";
 
 const categories = [
-  { name: "Marketplace", icon: "🛍️" },
-  { name: "Property", icon: "🏠" },
-  { name: "Motors", icon: "🚗" },
-  { name: "Jobs", icon: "💼" },
-  { name: "Services", icon: "🔧" },
+  { name: "Marketplace", icon: "/src/pages/Home/marketplace-icon.png" },
+  { name: "Property", icon: "/src/pages/Home/home-icon.png" },
+  { name: "Motors", icon: "/src/pages/Home/car-icon.png" },
+  { name: "Jobs", icon: "/src/pages/Home/job-icon.png" },
+  { name: "Services", icon: "/src/pages/Home/services-icon.png" },
 ];
 
 const products = [
@@ -96,7 +96,7 @@ function Home() {
               className={`category-tab ${activeCategory === cat.name ? "active" : ""}`}
               onClick={() => setActiveCategory(cat.name)}
             >
-              <span className="category-icon">{cat.icon}</span>
+              <img src={cat.icon} alt={cat.name} className="category-icon" />
               <span className="category-name">{cat.name}</span>
             </div>
           ))}

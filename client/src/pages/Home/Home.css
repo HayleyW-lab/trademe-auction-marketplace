@@ -10,8 +10,9 @@
 /* Category Tabs */
 .category-tabs {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   padding: 16px 0;
+  justify-content: center;
 }
 
 .category-tab {
@@ -41,7 +42,9 @@
 }
 
 .category-icon {
-  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .category-name {

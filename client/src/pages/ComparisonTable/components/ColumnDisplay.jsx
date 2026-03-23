@@ -1,4 +1,5 @@
 import React from "react";
+import ComparisonColumnData from "./comparisonColumnData";
 
 function ColumnDisplay() {
   const columns = [

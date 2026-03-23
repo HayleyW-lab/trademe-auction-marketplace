@@ -96,3 +96,32 @@
   font-weight: 700;
   color: #0037cd;
 }
+
+/* Active Category Tab */
+.category-tab.active {
+  border: 1px solid #0037cd;
+  color: #0037cd;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.filter-select {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #0037cd;
+  color: #0037cd;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: #4b61d1;
+}

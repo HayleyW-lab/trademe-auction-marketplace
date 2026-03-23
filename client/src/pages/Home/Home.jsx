@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../common/Header";
 import Footer from "../../common/Footer";
 import "./Home.css";
@@ -79,6 +79,11 @@ const products = [
 ];
 
 function Home() {
+  const [activeCategory, setActiveCategory] = useState("Marketplace");
+  const [shipping, setShipping] = useState("Shipping: All");
+  const [location, setLocation] = useState("All Locations");
+  const [sortBy, setSortBy] = useState("Sort: Best Match");
+
   return (
     <div className="home">
       <Header />
@@ -86,11 +91,52 @@ function Home() {
         {/* Category Tabs */}
         <div className="category-tabs">
           {categories.map((cat) => (
-            <div key={cat.name} className="category-tab">
+            <div
+              key={cat.name}
+              className={`category-tab ${activeCategory === cat.name ? "active" : ""}`}
+              onClick={() => setActiveCategory(cat.name)}
+            >
               <span className="category-icon">{cat.icon}</span>
               <span className="category-name">{cat.name}</span>
             </div>
           ))}
+        </div>
+
+        {/* Filter Bar */}
+        <div className="filter-bar">
+          <select
+            className="filter-select"
+            value={shipping}
+            onChange={(e) => setShipping(e.target.value)}
+          >
+            <option>Shipping: All</option>
+            <option>Shipping: Pickup available</option>
+            <option>Shipping: Free shipping</option>
+          </select>
+
+          <select
+            className="filter-select"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          >
+            <option>All Locations</option>
+            <option>Auckland</option>
+            <option>Wellington</option>
+            <option>Christchurch</option>
+            <option>Whangarei</option>
+            <option>Hamilton</option>
+          </select>
+
+          <select
+            className="filter-select"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+          >
+            <option>Sort: Best Match</option>
+            <option>Sort: Lowest Buy Now</option>
+            <option>Sort: Highest Buy Now</option>
+            <option>Sort: Closing soon</option>
+          </select>
         </div>
 
         {/* Product Grid */}

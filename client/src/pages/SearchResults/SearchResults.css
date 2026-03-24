@@ -61,8 +61,7 @@
 {
     padding: 15px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
 }
 
@@ -75,8 +74,28 @@
 
 .itemInfo
 {
-    padding: 10;
+    padding: 10px;
     background-color: white;
     height: 15vh;
     margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemTitle
+{
+    justify-content: flex-start;
+    margin-bottom: 1vh;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.itemDescription
+{
+    margin-bottom: 2vh;
+}
+
+.itemPrice
+{
+    text-align:right;
 }

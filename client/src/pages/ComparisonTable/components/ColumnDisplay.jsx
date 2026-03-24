@@ -22,17 +22,16 @@ function ColumnDisplay({ data }) {
 
   return (
     <div className={styles.itemList}>
-      {data.map((item) => (
-        <div key={item._id} className={styles.itemBox}>
-          <p>{item.title}</p>
-          <button
-            className={styles.btn}
-            onClick={() => handleAddToCompare(item)}
-          >
-            Add product
-          </button>
-        </div>
-      ))}
+      <div>
+        {data.map((item) => (
+          <div key={item._id} className={styles.itemBox}>
+            {/* <p>{item.title}</p> */}
+          </div>
+        ))}
+        <button className={styles.btn} onClick={() => handleAddToCompare(item)}>
+          Add product
+        </button>
+      </div>
 
       {selectedItems.length === 0 ? (
         <p>No Items selected yet</p>

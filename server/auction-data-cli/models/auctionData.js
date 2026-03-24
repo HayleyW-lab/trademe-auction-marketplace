@@ -9,6 +9,7 @@ const auctionDataSchema = mongoose.Schema({
 
 const ItemSchema = mongoose.Schema({
   title: { type: String, required: true },
+  image: { type: String, required: true },
   price: { type: String, required: true },
   condition: { type: String, required: true },
   dimensions: { type: String, required: true },

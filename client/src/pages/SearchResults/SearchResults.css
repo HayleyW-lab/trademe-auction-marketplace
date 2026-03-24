@@ -57,15 +57,25 @@
     color: rgb(68, 65, 61)
 }
 
-.results
+.resultsGrid
 {
     padding: 15px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
+    gap: 16px;
 }
 
-.auctionItem
+.itemImage
 {
+    width: 100%;
+    height: 200px;
+    background-color: lightskyblue;
+}
 
+.itemInfo
+{
+    padding: 50px;
+    background-color: white;
+    margin-bottom: 5vh;
 }

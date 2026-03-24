@@ -7,7 +7,7 @@ function ComparisonColumnData() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/comparisontable/compare")
+    fetch("http://localhost:3000/comparison/table")
       .then((response) => response.json())
       .then((items) => {
         console.log("Fetched data:", items);

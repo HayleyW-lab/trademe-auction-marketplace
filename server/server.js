@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const listingRoutes = require("./routes/listingRoutes");
 const Item = require("./models/itemModel");
+const multer = require("multer");
 
 dotenv.config();
 
@@ -11,12 +12,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
   res.send("Server is running.");
 });
 
-app.get("/comparisontable", async (req, res) => {
+app.get("/comparison", async (req, res) => {
   try {
     const items = await Item.find();
     res.json(items);
@@ -28,7 +30,7 @@ app.get("/comparisontable", async (req, res) => {
   }
 });
 
-app.get("/comparisontable/compare", async (req, res) => {
+app.get("/comparison/table", async (req, res) => {
   try {
     const items = await Item.find();
     res.json(items);

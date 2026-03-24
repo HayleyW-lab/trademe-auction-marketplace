@@ -1,26 +1,14 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import styles from "./ComparisonHomePage.module";
+import { Link } from "react-router-dom";
+import styles from "./ComparisonHomePage.module.css";
 
 function ComparisonHomePage() {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:3000/comparisontable")
-      .then((response) => response.json())
-      .then((items) => {
-        console.log("Fetched data:", items);
-        setData(items);
-      })
-      .catch((err) => {
-        console.log("Frontend fetch error:", err);
-        setError("Could not load data");
-      });
-  }, []);
   return (
-    <div className={styles.content}>
-      <Outlet />
+    <div className={styles.homePageContainer}>
+      <div className={styles.content}>COMPARISON TABLE</div>
+      <p>1 Category</p>
+      <Link to="/comparison/table">
+        <button className={styles.goToBtn}>View Comparison Table</button>
+      </Link>
     </div>
   );
 }

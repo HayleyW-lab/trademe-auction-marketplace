@@ -22,7 +22,7 @@ function Header() {
           <img src="/src/common/logo.png" alt="Trade Me" className="logo-img" />
         </div>
         <nav className="header-nav">
-          <Link to="/comparison" className="link">
+          <Link to="/comparisontable" className="link">
             <div className="nav-item">
               ⚖️ <span>Comparison</span>
             </div>

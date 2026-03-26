@@ -25,31 +25,41 @@ function ColumnDisplay({ data }) {
   }
 
   return (
-    <div className={styles.comparisonContainer}>
-      {comparisonSlots.map((slot, index) => (
-        <div key={index} className={styles.comparisonCard}>
-          {slot === null ? (
-            <button
-              className={styles.addProductBtn}
-              onClick={() => handleGoToSearch(index)}
-            >
-              {" "}
-              {<img src={addProductBtn} alt="add product" />} <br />
-              Add Product
-            </button>
-          ) : (
-            <div className={styles.removeBtnContainer}>
+    <div>
+      <div className={styles.headerTitles}>
+        <p className={styles.comparisonTablePaths}>
+          Home / Marketplace / Comparison Table / Wooden Desks
+        </p>
+        <h1 className={styles.comparisonTableHeader1}>
+          COMPARISON TABLE: <span className={styles.desks}>WOOODEN DESKS</span>
+        </h1>
+      </div>
+      <div className={styles.comparisonContainer}>
+        {comparisonSlots.map((slot, index) => (
+          <div key={index} className={styles.comparisonCard}>
+            {slot === null ? (
               <button
-                className={styles.removeBtn}
-                onClick={() => handleRemoveItem(index)}
+                className={styles.addProductBtn}
+                onClick={() => handleGoToSearch(index)}
               >
                 {" "}
-                X{" "}
+                {<img src={addProductBtn} alt="add product" />} <br />
+                Add Product
               </button>
-            </div>
-          )}
-        </div>
-      ))}
+            ) : (
+              <div className={styles.removeBtnContainer}>
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => handleRemoveItem(index)}
+                >
+                  {" "}
+                  X{" "}
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

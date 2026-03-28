@@ -31,7 +31,7 @@ function ColumnDisplay({ data }) {
     <div>
       <div className={styles.headerTitles}>
         <p className={styles.comparisonTablePaths}>
-          Home / Marketplace / Comparison Table / Wooden Desks
+          <span> Home / Marketplace / Comparison Table</span> / Wooden Desks
         </p>
         <h1 className={styles.comparisonTableHeader1}>
           COMPARISON TABLE: <span className={styles.desks}>WOOODEN DESKS</span>

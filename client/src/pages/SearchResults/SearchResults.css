@@ -10,11 +10,16 @@
     font-size: 15px;
 }
 
+.paths
+{
+    padding: 20px 20px 10px 5px;
+}
+
 .category
 {
     color: rgb(74, 84, 211);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 45px;
     margin-top: 10px;
 }
 
@@ -23,7 +28,8 @@
    display: flex;
    flex-direction: row;
    gap: 2.5vw;
-   margin-bottom: 5vh;
+   margin-bottom: 2.5vh;
+   padding: 15px;
 }
 
 .labels

@@ -7,6 +7,7 @@ import Footer from "../../common/Footer"
 function SearchResults()
 {
   const [listings, setListings] = useState([])
+  const [sortBy, setSortBy] = useState("Best Match")
 
   const [searchParams] = useSearchParams()
   const query = searchParams.get("q")
@@ -52,8 +53,8 @@ function SearchResults()
     </div>
     <div className="searchResultsMain">
       <div className="searchResultsHeader">
-        <div className="resultsShown">Showing 516 results for 'wooden desk'</div>
-        <div className="sorting">Sort</div>
+        <div className="resultsShown">Showing {listings.length} results for '{query}'</div>
+        <div className="sorting">Sort: {sortBy}</div>
       </div>
       <div className="resultsGrid">
         {listings.map((listing) =>

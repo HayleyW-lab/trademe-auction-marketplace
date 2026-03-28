@@ -64,7 +64,10 @@ function SearchResults()
             <div className="listingInfo">
               <div className="listingTitle">{listing.title}</div>
               <div className="listingDescription">{listing.description}</div>
-              <div className="listingrice">{listing.price}</div>
+              <div className="listingPrice">
+                <div className="buyNow">Buy now</div>
+                <div className="price">${listing.price}</div>
+              </div>
             </div>
           </div>
         ))}

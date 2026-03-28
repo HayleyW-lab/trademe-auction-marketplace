@@ -52,15 +52,15 @@
 
 .searchResultsHeader
 {
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     padding: 20px;
 }
 
 .resultsShown
 {
     font-weight: bold;
+    font-size: 20px;
     color: rgb(68, 65, 61)
 }
 
@@ -70,6 +70,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+}
+
+.listingCard
+{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
 }
 
 .listingImage
@@ -85,7 +92,7 @@
 {
     padding: 10px;
     background-color: white;
-    height: 15vh;
+    height: 25vh;
     margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
@@ -97,14 +104,33 @@
     margin-bottom: 1vh;
     font-weight: bold;
     font-size: 25px;
+    padding: 5px 0px 0px 5px;
 }
 
 .listingDescription
 {
+    padding: 0px 10px 0px 10px;
     margin-bottom: 2vh;
 }
 
 .listingPrice
 {
-    text-align:right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding: 0px 10px 10px 0px;
+    text-align: right;
+    font-weight: bold;
+    color: rgb(68, 65,61)
+}
+
+.buyNow
+{
+    font-size: 16px;
+}
+
+.price
+{
+    font-size: 32px;
 }

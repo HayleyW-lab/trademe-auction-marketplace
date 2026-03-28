@@ -71,6 +71,10 @@
   height: 50px;
 }
 
+.btnPara {
+  color: #44413c;
+  font-weight: 300;
+}
 .removeBtnContainer {
   display: flex;
   justify-content: flex-end;

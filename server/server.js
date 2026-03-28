@@ -58,4 +58,28 @@ async function startServer() {
   }
 }
 
+app.get("/search", async (req,res) =>
+{
+  try
+  {
+    const { query } = req.query
+
+    if (!query)
+    {
+      return res.status(400).json({ message: "Please enter a search" })
+    }
+
+    const listings = await Item.find({
+      title: { $regex: query, $options: "i" }
+    })
+
+    res.json(listings)
+  }
+  catch (error)
+  {
+    res.status(500).json({ message: "Search failed", error: error.message })
+  }
+}
+)
+
 startServer();

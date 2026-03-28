@@ -1,4 +1,6 @@
 import "./SearchResults.css"
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react"
 import Header from "../../common/Header"
 import Footer from "../../common/Footer"
 

@@ -6,7 +6,7 @@ const RELATED_ITEMS = [
     id: "related-1",
     title: "20th Century Wooden Desk",
     price: "$110",
-    image: "http://localhost:3000/uploads/related-desk-1.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-1.jpg",
     description:
       "Beautifully aged wooden desk with a balanced double-pedestal design. A great piece for fans of mid-century or 20th-century decor. Solid construction and timeless look.",
   },
@@ -14,7 +14,7 @@ const RELATED_ITEMS = [
     id: "related-2",
     title: "Corner Desk with Cabinets",
     price: "$150",
-    image: "http://localhost:3000/uploads/related-desk-2.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-2.jpg",
     description:
       "The ultimate ergonomic setup. This corner unit features built-in side cabinets and a pull-out keyboard tray to keep your desktop clutter-free. Perfect for gamers or home office pros.",
   },
@@ -22,7 +22,7 @@ const RELATED_ITEMS = [
     id: "related-3",
     title: "Vintage Wooden Desk",
     price: "$220",
-    image: "http://localhost:3000/uploads/related-desk-3.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-3.jpg",
     description:
       "A high-quality vintage piece with a unique curved knee-hole design. Features six drawers and a beautifully polished grain. This is a heavy-duty, forever desk that looks great in a study or library.",
   },
@@ -30,7 +30,7 @@ const RELATED_ITEMS = [
     id: "related-4",
     title: "Oak Desk",
     price: "$300",
-    image: "http://localhost:3000/uploads/related-desk-4.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-4.jpg",
     description:
       "Elegant, contemporary oak desk with slim legs and three sleek drawers. The light wood grain is stunning and fits perfectly with Scandi or modern minimalist decor. Could also be used as a premium console table in an entryway.",
   },
@@ -38,7 +38,7 @@ const RELATED_ITEMS = [
     id: "related-5",
     title: "Solid Rimu Desk",
     price: "$40.00",
-    image: "http://localhost:3000/uploads/related-desk-5.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-5.jpg",
     description:
       "You can’t beat the warmth of Rimu. This desk is built to last with four deep drawers on the left and a clean open space on the right. Ideal for students or as a dedicated crafting station.",
   },
@@ -46,7 +46,7 @@ const RELATED_ITEMS = [
     id: "related-6",
     title: "Large Desk",
     price: "$100",
-    image: "http://localhost:3000/uploads/related-desk-6.jpg",
+    image: "http://localhost:3000/uploads/related-listing-desk-6.jpg",
     description:
       "A substantial desk for those who like to spread out. Massive storage capacity with eight drawers in total. Traditional aesthetic that adds a professional feel to any room.",
   },

@@ -3,17 +3,18 @@
 }
 
 .related-listings__inner {
-  width: fit-content;
+  width: 100%;
+  max-width: 1172px;
   margin: 0 auto;
 }
 
 .related-listings__title {
   margin: 0 0 32px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  margin-left: 54px;
   color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
 }
 
 .related-listings__carousel {

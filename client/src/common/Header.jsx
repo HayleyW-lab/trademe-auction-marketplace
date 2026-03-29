@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Header.css";
+import logo from "../assets/logo/trade_me_logo.svg.png";
+import comparisonIcon from "../assets/icons/Comparison.png";
+import watchlistIcon from "../assets/icons/Watchlist.png";
+import categoriesIcon from "../assets/icons/Categories.png";
+import favouritesIcon from "../assets/icons/Favourites.png";
+import startListingIcon from "../assets/icons/start-a-listing.png";
+import myTradeMeIcon from "../assets/icons/my-trade-me.png";
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,28 +26,32 @@ function Header() {
       {/* Top Row - Logo and Nav Icons */}
       <div className="header-top">
         <div className="header-logo">
-          <img src="/src/common/logo.png" alt="Trade Me" className="logo-img" />
+          <img src={logo} alt="Trade Me" className="logo-img" />
         </div>
         <nav className="header-nav">
           <Link to="/comparisontable" className="link">
             <div className="nav-item">
-              ⚖️ <span>Comparison</span>
+              <img src={comparisonIcon} alt="Comparison" className="nav-icon" />
             </div>
           </Link>
           <div className="nav-item">
-            ☰ <span>Categories</span>
+            <img src={categoriesIcon} alt="Categories" className="nav-icon" />
           </div>
           <div className="nav-item">
-            👁 <span>Watchlist</span>
+            <img src={watchlistIcon} alt="Watchlist" className="nav-icon" />
           </div>
           <div className="nav-item">
-            ♡ <span>Favourites</span>
+            <img src={favouritesIcon} alt="Favourites" className="nav-icon" />
           </div>
           <div className="nav-item">
-            ✏️ <span>Start a listing</span>
+            <img
+              src={startListingIcon}
+              alt="Start a listing"
+              className="nav-icon"
+            />
           </div>
           <div className="nav-item">
-            👤 <span>My Trade Me</span>
+            <img src={myTradeMeIcon} alt="My Trade Me" className="nav-icon" />
           </div>
         </nav>
       </div>

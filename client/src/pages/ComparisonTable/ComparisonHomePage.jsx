@@ -13,10 +13,14 @@ function ComparisonHomePage() {
       <Header />
       <div className={styles.homePageContainer}>
         <div className={styles.headerTitles}>
-          <p className={styles.paths}>Home / Marketplace / Comparison Table</p>
+          <p className={styles.paths}>
+            <span>Home / Marketplace </span>/ Comparison Table
+          </p>
           <h1 className={styles.header1}>COMPARISON TABLE</h1>
           <p className={styles.para1}>1 Category</p>
         </div>
+
+        {/* page content */}
         <div className={styles.content}>
           <Link to="/comparison/table" className={styles.link}>
             <div className={styles.btnContainer}>
@@ -27,20 +31,25 @@ function ComparisonHomePage() {
                   src={woodenDesk}
                   alt="wooden desk"
                 />
-                <br />
+
                 <img className={styles.img} src={rimuDesk} alt="rimu desk" />
-                <br />
+
                 <img className={styles.img} src={teakDesk} alt="teak desk" />
-                <br />
               </div>
-              <button className={styles.goToBtn}>View Comparison Table</button>
+
+              {/* view comparison button */}
+
+              <button className={styles.viewComparisonBtn}>
+                View Comparison Table
+              </button>
             </div>
           </Link>
-
+          {/* create category button */}
           <button className={styles.createCategoryBtn}>
             <img src={addProductBtn} alt="add product" />
             <br />
-            Create new Category
+            Create new <br />
+            Category
           </button>
         </div>
       </div>

@@ -79,7 +79,7 @@ function SearchResults()
                           </div>
                           <div className="detailsRow">
                             <div className="quickLabel">Dimensions</div>
-                            <div className="quickValue">W 75cm x H 75c x D 34cm</div>
+                            <div className="quickValue">W 75cm x H 75cm x D 34cm</div>
                           </div>
                           <div className="detailsRow">
                             <div className="quickLabel">Shipping & pick-up</div>
@@ -139,11 +139,10 @@ function SearchResults()
                         <button className="fullDetailsButton">View Full Details</button>
                       </div>
                       </div>
-                    </div>
-
-                    <button className="navRight" onClick={() => setCurrentListing(prev => (prev + 1) % listings.length)}>
+                      <button className="navRight" onClick={() => setCurrentListing(prev => (prev + 1) % listings.length)}>
                       <span>&#8594;</span>
                     </button>
+                    </div>
                   </div>
               )}
     <Header/>

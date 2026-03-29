@@ -404,14 +404,25 @@
 .quickviewListing
 {
     display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: white;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.quickviewMainContent
+{
+    display: flex;
     position: relative;
-    padding: 50px;
+    padding: 40px;
     flex-direction: row;
     gap: 20px;
     background: white;
     border-radius: 25px;
 }
 
+/* Left Side */
 .quickLeft
 {
     display: flex;
@@ -479,8 +490,38 @@
 .quickRight
 {
     display: flex;
+    position: relative;
     flex-direction: column;
     padding: 10px;
+}
+
+.quickWatchlist
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 7.5px 10px;
+    border-radius: 50px;
+    background: rgb(249, 175, 44);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.quickWatchlist img
+{
+    width: 20px;
+    height: 20px;
+}
+
+.quickWatchlist:hover
+{
+    background: rgb(255, 202, 78);
+}
+
+.quickWatchlist:active
+{
+    background: rgb(235, 174, 31)
 }
 
 .quickTitle
@@ -526,6 +567,7 @@
     padding: 7.5px;
     font-weight: bold;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .addComparison img
@@ -574,10 +616,11 @@
     background: rgb(0, 122, 205);
     border: none;
     width: 85%;
-    padding: 5px 20px;
+    padding: 7.5px 20px;
     border-radius: 5px;
     color: white;
     box-shadow:0px 1px 5px rgb(68, 65,61);
+    cursor: pointer;
 }
 
 .placeBid
@@ -629,11 +672,12 @@ input[type="number"]
 {
     padding: 5px 20px;
     width: 75%;
-    background: rgb(190, 190, 190);
+    background: rgb(204, 204, 204);
     border: none;
     border-radius: 10px;
     color: rgb(68, 65, 61);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .generalText
@@ -663,6 +707,32 @@ input[type="number"]
     box-shadow:0px 0px 4px rgb(68, 65,61);
     padding: 7.5px 15px;
     color: rgb(72, 84, 211);
-    background: rgb(190, 190, 190);
+    background: rgb(212, 212, 212);
     font-weight: bold;
+    cursor: pointer;
+}
+
+/* Full details button */
+.fullDetails
+{
+    display: flex;
+    width: 50%;
+    margin-bottom: 2vh;
+    padding: 10px;
+    border-radius: 7.5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.fullDetailsButton
+{
+    width: 75%;
+    padding: 10px;
+    border: none;
+    background: rgb(72, 84, 211);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow:0px 3px 5px rgba(68, 65, 61, 0.5);
 }

@@ -67,6 +67,7 @@ function SearchResults()
                     </button>
 
                     <div className="quickviewListing">
+                      <div className="quickviewMainContent">
                       <button className="closeQuickview" onClick={() => setQuickview(false)}>X</button>
                       <div className="quickLeft">
                         <img src={fetchImagePath(listings[currentListing].image)} className="quickviewImage"/>
@@ -92,6 +93,9 @@ function SearchResults()
                       </div>
 
                       <div className="quickRight">
+                        <button className="quickWatchlist" onClick={() => watchlistToggle(listings[currentListing]._id)}>
+                          <img src={watchlist[listings[currentListing]._id] ? icon_binoculars_minus : icon_binoculars_plus}/>
+                        </button>
                         <p className="quickTitle">Wooden Desk</p>
                         <div className="listingTime">
                           <img src={clock}/>
@@ -130,6 +134,10 @@ function SearchResults()
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div className="fullDetails">
+                        <button className="fullDetailsButton">View Full Details</button>
+                      </div>
                       </div>
                     </div>
 

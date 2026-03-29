@@ -67,7 +67,7 @@ function SearchResults()
                     </button>
 
                     <div className="quickviewListing">
-                      <button className="closeQuickview"/>
+                      <button className="closeQuickview" onClick={() => setQuickview(false)}>X</button>
                       <div className="quickLeft">
                         <img src={fetchImagePath(listings[currentListing].image)} className="quickviewImage"/>
                         <div className="quickDetails">

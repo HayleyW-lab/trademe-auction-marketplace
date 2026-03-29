@@ -380,6 +380,19 @@
     z-index: 10000;
 }
 
+.closeQuickview
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background: rgb(168, 168, 168);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 .quickviewMain
 {
     display: flex;

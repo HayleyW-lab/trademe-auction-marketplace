@@ -9,7 +9,6 @@
 .bid-form__min-bid {
   margin: 0 0 8px;
   color: #7f7c77;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 19px;
@@ -35,7 +34,6 @@
   outline: none;
   box-shadow: none;
   color: #44413d;
-  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
@@ -59,7 +57,6 @@
   appearance: none;
   color: #44413d;
   cursor: not-allowed;
-  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 600;
   line-height: 19px;
@@ -86,7 +83,6 @@
 .bid-form__note {
   margin: 12px 0 14px;
   color: #7f7c77;
-  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;
@@ -102,7 +98,6 @@
 .bid-form__offer-title {
   margin: 10px 0 6px;
   color: #44413d;
-  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 500;
   line-height: 19px;
@@ -117,7 +112,6 @@
   background: rgba(165, 165, 165, 0.2);
   color: #007acd;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 600;
   line-height: 19px;
@@ -133,7 +127,6 @@
 .bid-form__error,
 .bid-form__success {
   margin: 8px 0 12px;
-  font-family: "Inter", sans-serif;
   font-size: 12px;
   text-align: center;
 }

@@ -1,6 +1,6 @@
 require("dotenv").config({ path: "../.env" });
 const mongoose = require("mongoose");
-const Item = require("./models/itemSchema");
+const Item = require("../models/itemModel");
 const connectDb = require("../config/db");
 const seedData = require("./data/seedData");
 

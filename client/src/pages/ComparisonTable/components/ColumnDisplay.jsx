@@ -3,6 +3,8 @@ import { useState } from "react";
 import styles from "./ColumnDisplay.module.css";
 import addProductBtn from "../../../assets/add-product-icon.png";
 import { useEffect } from "react";
+import nextListingIcon from "../../../assets/icons/Next-listing.png";
+import prevListingIcon from "../../../assets/icons/previous-listing.png";
 
 function ColumnDisplay({ data, category }) {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ function ColumnDisplay({ data, category }) {
     if (
       // was item received?
       location.state?.selectedItem &&
-      // did we receive which slot?
+      // did we receive which slot it's supposed to go in?
       location.state?.slotIndex !== undefined
     ) {
       // get values from location state
@@ -50,6 +52,7 @@ function ColumnDisplay({ data, category }) {
   }
 
   const filledColumns = comparisonSlots.filter((slot) => slot !== null).length;
+
   return (
     <div>
       <div className={styles.headerTitles}>
@@ -123,12 +126,23 @@ function ColumnDisplay({ data, category }) {
         </div>
 
         <button
+          className={styles.prevBtn}
+          onClick={() => {
+            const container = document.getElementById("comparisonScroll");
+            container.scrollBy({ left: -320, behavior: "smooth" });
+          }}
+        >
+          {<img src={prevListingIcon} alt="next listing" />}
+        </button>
+        <button
           className={styles.nextBtn}
           onClick={() => {
             const container = document.getElementById("comparisonScroll");
             container.scrollBy({ left: 320, behavior: "smooth" });
           }}
-        ></button>
+        >
+          {<img src={nextListingIcon} alt="next listing" />}
+        </button>
       </div>
     </div>
   );

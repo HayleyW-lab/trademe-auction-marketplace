@@ -104,6 +104,9 @@
   display: none;
 }
 
+.prevBtn {
+  display: none;
+}
 /* tablet view */
 @media only screen and (max-width: 1024px) {
   .headerTitles {
@@ -138,8 +141,7 @@
   }
 
   .comparisonScroll {
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -196,9 +198,33 @@
     border: none;
     border-radius: 10px;
     background: rgba(120, 120, 120, 0.85);
+
+    background: #d3d3d3;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+
     color: white;
     font-size: 2rem;
     line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prevBtn {
+    display: block;
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(120, 120, 120, 0.85);
+
+    background: #d3d3d3;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    color: white;
+    font-size: 2rem;
     cursor: pointer;
     z-index: 10;
   }

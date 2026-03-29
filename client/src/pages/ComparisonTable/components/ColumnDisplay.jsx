@@ -1,10 +1,12 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+
 import { useState } from "react";
 import styles from "./ColumnDisplay.module.css";
 import addProductBtn from "../../../assets/add-product-icon.png";
 import { useEffect } from "react";
 import nextListingIcon from "../../../assets/icons/Next-listing.png";
 import prevListingIcon from "../../../assets/icons/previous-listing.png";
+import goBackBtn from "../../../assets/icons/go-back-btn.png";
 
 function ColumnDisplay({ data, category }) {
   const navigate = useNavigate();
@@ -62,6 +64,11 @@ function ColumnDisplay({ data, category }) {
         <h1 className={styles.comparisonTableHeader1}>
           COMPARISON TABLE: <span className={styles.desks}>{category}</span>
         </h1>
+        <Link to="/comparison" className={styles.linkBackToLandingPage}>
+          <button className={styles.goBackBtn}>
+            {<img src={goBackBtn} alt="Go Back" />} Go back
+          </button>
+        </Link>
       </div>
 
       <div className={styles.mobileTableWrapper}>

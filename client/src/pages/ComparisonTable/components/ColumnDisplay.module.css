@@ -17,11 +17,22 @@
   color: #4854d3;
   font-weight: 900;
   letter-spacing: 1px;
+  padding-bottom: 1rem;
 }
 
 /* wooden desk part in the header */
 .desks {
   color: #f9af2c;
+}
+
+.goBackBtn {
+  color: #4854d3;
+  text-decoration: none;
+  border: none;
+}
+.goBackBtn img {
+  padding-top: 0.2rem;
+  padding-right: 0.2rem;
 }
 
 .comparisonContainer {

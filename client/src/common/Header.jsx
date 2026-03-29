@@ -15,10 +15,50 @@ function Header() {
   const navigate = useNavigate();
 
   const suggestions = [
-    { type: "Recent", items: ["wooden desk"] },
-    { type: "Suggestions", items: ["wooden desk", "desk table", "designer"] },
-    { type: "Categories", items: ["Desire", "Design", "Desk & table"] },
-    { type: "Stores", items: ["Design Withdrawals", "Designer Frames Ltd"] },
+    {
+      type: "Recent",
+      items: [{ name: "wooden desk" }],
+    },
+    {
+      type: "Suggestions",
+      items: [
+        { name: "wooden desk" },
+        { name: "desk table" },
+        { name: "designer" },
+      ],
+    },
+    {
+      type: "Categories",
+      items: [
+        {
+          name: "Desire",
+          subtitle: "Mobile phones/ Mobile phones/ HTC/ Desire",
+        },
+        {
+          name: "Design",
+          subtitle: "Books/ Non-fiction/ Art, photography & design/ Design",
+        },
+        {
+          name: "Desk & table",
+          subtitle: "Home & living/ Heating & cooling/ Fans/ Desk & table",
+        },
+      ],
+    },
+    {
+      type: "Stores",
+      items: [
+        {
+          name: "Design Withdrawals",
+          subtitle:
+            "Design Withdrawals has a unique and extensive collection offering a gift for everyone.",
+        },
+        {
+          name: "Designer Frames Ltd",
+          subtitle:
+            "We are a picture framing supplier and a factory outlet, we sell ready made frames.",
+        },
+      ],
+    },
   ];
 
   return (
@@ -88,13 +128,21 @@ function Header() {
                 <div key={group.type} className="suggestion-group">
                   <p className="suggestion-type">{group.type}</p>
                   {group.items.map((item) => (
-                    <p
-                      key={item}
+                    <div
+                      key={item.name}
                       className="suggestion-item"
-                      onClick={() => setSearchQuery(item)}
+                      onClick={() => setSearchQuery(item.name)}
                     >
-                      {item}
-                    </p>
+                      {group.type === "Stores" && (
+                        <div className="store-avatar">{item.name[0]}</div>
+                      )}
+                      <div>
+                        <p className="suggestion-name">{item.name}</p>
+                        {item.subtitle && (
+                          <p className="suggestion-subtitle">{item.subtitle}</p>
+                        )}
+                      </div>
+                    </div>
                   ))}
                 </div>
               ))}

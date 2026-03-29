@@ -98,9 +98,7 @@ function Footer() {
       <div className="footer-main">
         {/* Logo */}
         <div className="footer-logo">
-          <span className="logo-trade">trade</span>
-          <span className="logo-me">me</span>
-          <span className="logo-kiwi">🐦</span>
+          <img src="/src/common/logo.png" alt="Trade Me" className="logo-img" />
         </div>
 
         {/* Links Grid */}

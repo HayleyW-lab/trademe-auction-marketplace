@@ -139,6 +139,10 @@
   cursor: pointer;
 }
 
+.footer-logo img {
+  height: 40px;
+}
+
 @media (max-width: 768px) {
   .footer-links {
     grid-template-columns: repeat(2, 1fr);

@@ -1,0 +1,22 @@
+.columnContainer {
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: auto;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .columnContainer {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .columnContainer {
+    flex-direction: column;
+  }
+}

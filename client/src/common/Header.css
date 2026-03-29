@@ -181,4 +181,12 @@
   .header-search-wrapper {
     width: 90%;
   }
+  .link {
+    text-decoration: none;
+    color: #44413c;
+  }
+
+  .link:hover .nav-item {
+    color: #0037cd;
+  }
 }

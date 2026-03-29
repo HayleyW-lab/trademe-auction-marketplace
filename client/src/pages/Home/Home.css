@@ -32,13 +32,13 @@
 }
 
 .category-tab:hover {
-  border: 1px solid #0037cd;
-  color: #0037cd;
+  border: 2px solid #4854d3;
+  color: #4854d3;
 }
 
 .category-tab.active {
-  border: 1px solid #0037cd;
-  color: #0037cd;
+  border: 2px solid #4854d3;
+  color: #4854d3;
 }
 
 .category-icon {
@@ -103,12 +103,6 @@
 .product-price {
   font-size: 14px;
   font-weight: 700;
-  color: #0037cd;
-}
-
-/* Active Category Tab */
-.category-tab.active {
-  border: 1px solid #0037cd;
   color: #0037cd;
 }
 

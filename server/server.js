@@ -42,6 +42,18 @@ app.get("/comparison/table", async (req, res) => {
   }
 });
 
+app.get("/api/items", async (req, res) => {
+  try {
+    const items = await Item.find();
+    res.json(items);
+  } catch (error) {
+    res.status(500).json({
+      message: "Error! Couldn't retrieve items",
+      error: error.message,
+    });
+  }
+});
+
 app.use("/api/listings", listingRoutes);
 
 const PORT = process.env.PORT || 3000;
@@ -58,5 +70,27 @@ async function startServer() {
     process.exit(1);
   }
 }
+
+app.get("/search", async (req, res) => {
+  try {
+    const { query } = req.query;
+
+    if (!query) {
+      return res.status(400).json({ message: "Please enter a search" });
+    }
+
+    const keyWords = query.split(" ");
+
+    const listings = await Item.db.collection("auction-listings").find({
+      $or: keyWords.map((query) => ({
+        title: { $regex: query, $options: "i" },
+      })),
+    }).toArray();
+
+    res.json(listings);
+  } catch (error) {
+    res.status(500).json({ message: "Search failed", error: error.message });
+  }
+});
 
 startServer();

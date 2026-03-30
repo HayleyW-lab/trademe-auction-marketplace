@@ -3,10 +3,13 @@
 const { Command } = require("commander");
 const {
   seedItems,
+  seedListings,
   addItem,
   listItems,
   deleteAllItems,
+  deleteAllListings,
 } = require("../index.js");
+
 const inquirer = require("inquirer").default;
 const { questionsForItems } = require("./prompts.js");
 
@@ -22,6 +25,11 @@ program
   .description("seeding all items into MongoDB")
   .action(() => seedItems());
 
+program
+  .command("seedListings")
+  .description("seeding all listings into MongoDB")
+  .action(() => seedListings());
+
 // adding items
 program
   .command("addItem")
@@ -35,10 +43,15 @@ program
   .description("List of all added auctions")
   .action(() => listItems());
 
-//   delete all items from mongoDB
+// delete all items from mongoDB
 program
   .command("deleteAllItems")
   .description("Deleting all auctions from MongoDB")
   .action(() => deleteAllItems());
 
+  program
+  .command("deleteAllListings")
+  .description("Deleting all listings from MongoDB")
+  .action(() => deleteAllListings());
+  
 program.parse(process.argv);

@@ -225,22 +225,3 @@ function SearchResults()
 }
 
 export default SearchResults;
-
-// {quickview &&
-//               (
-//                 <div className="quickviewOverlay" onClick={() => setQuickview(false)}>
-//                   <div className="quickviewMain">
-//                     <button className="navLeft" onClick={() => setCurrentIndex(prev => (prev - 1 + listings.length) % listings.length)}>
-//                       <span>&#8592;</span>
-//                     </button>
-
-//                     <div>
-//                       <img src={fetchImagePath(listings[currentListing].image)} className="quickviewImage"/>
-//                     </div>
-
-//                     <button className="navRight" onClick={() => setCurrentIndex(prev => (prev + 1) % listings.length)}>
-//                       <span>&#8594;</span>
-//                     </button>
-//                   </div>
-//                 </div>
-//               )}

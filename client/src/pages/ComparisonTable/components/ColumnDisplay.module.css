@@ -118,10 +118,14 @@
 .prevBtn {
   display: none;
 }
+
+.linkBackToLandingPage {
+  display: none;
+}
 /* tablet view */
 @media only screen and (max-width: 1024px) {
   .headerTitles {
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 10rem 1.5rem 1rem 1.5rem;
   }
 
   .comparisonContainer {
@@ -138,6 +142,9 @@
 
 /* mobile view */
 @media only screen and (max-width: 768px) {
+  .linkBackToLandingPage {
+    display: inline-block;
+  }
   .headerTitles {
     padding: 10rem 1rem 0.5rem 1rem;
   }

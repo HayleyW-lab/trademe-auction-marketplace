@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../../common/Header";
 import Footer from "../../common/Footer";
 import "./Home.css";
-import watchlistIcon from "../../assets/icons/AddtoWatchlist.png"; // ← add this import at the top
+import watchlistIcon from "../../assets/icons/AddtoWatchlist.png";
 
 const categories = [
   { name: "Marketplace", icon: "/src/pages/Home/marketplace-icon.png" },
@@ -18,14 +18,14 @@ function Home() {
   const [shipping, setShipping] = useState("Shipping: All");
   const [location, setLocation] = useState("All Locations");
   const [sortBy, setSortBy] = useState("Sort: Best Match");
-  const [products, setProducts] = useState([]); // ← ADD THIS
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/items")
+    fetch("http://localhost:3000/api/listings")
       .then((res) => res.json())
       .then((data) => setProducts(data))
-      .catch((err) => console.error("Failed to fetch items:", err));
+      .catch((err) => console.error("Failed to fetch listings:", err));
   }, []);
 
   return (
@@ -88,7 +88,7 @@ function Home() {
             >
               <div className="product-image-wrapper">
                 <img
-                  src={product.image}
+                  src={`http://localhost:3000${product.images[0]}`}
                   alt={product.title}
                   className="product-image"
                 />
@@ -101,8 +101,8 @@ function Home() {
               <div className="product-info">
                 <p className="product-title">{product.title}</p>
                 <p className="product-location">{product.location}</p>
-                <p className="product-closing">{product.closing}</p>
-                <p className="product-price">{product.price}</p>
+                <p className="product-closing">{product.condition}</p>
+                <p className="product-price">${product.buyNowPrice}</p>
               </div>
             </div>
           ))}

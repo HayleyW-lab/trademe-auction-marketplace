@@ -1,108 +1,208 @@
 import "./SearchResults.css"
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
+import icon_eye from "./assets/icon_eye.png"
+import icon_binoculars_plus from "./assets/icon_binoculars_plus.png"
+import icon_binoculars_minus from "./assets/icon_binoculars_minus.png"
+import filter from "./assets/filter.png"
+import clock from "./assets/clock.png"
+import comparison from "./assets/comparison.png"
 import Header from "../../common/Header"
 import Footer from "../../common/Footer"
 
-
-// https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg
-
-const auctionItems =
-[
-  {
-    id: 1,
-    title: "Wooden Desk",
-    description: "A classic, minimalist wooden desk perfect for a home office or hallway. Features a lovely dark wood finish and three handy drawers for stationery. Slim profile makes it great for smaller spaces.",
-    price: "$25.00",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 2,
-    title: "Solid Teak Study Desk",
-    description: "Proper solid teak desk with plenty of character and storage. Includes seven drawers with stylish curved handles. Perfect for someone who needs a sturdy workspace that can handle a dual-monitor setup.",
-    price: "$30.00",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 3,
-    title: "Solid Rimu Desk",
-    description: "You can’t beat the warmth of Rimu. This desk is built to last with four deep drawers on the left and a clean open space on the right. Ideal for students or as a dedicated crafting station.",
-    price: "$40.00",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 4,
-    title: "Large Desk",
-    description: "A substantial desk for those who like to spread out. Massive storage capacity with eight drawers in total. Traditional aesthetic that adds a professional feel to any room.",
-    price: "$100",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 5,
-    title: "20th Century Wooden Desk",
-    description:"Beautifully aged wooden desk with a balanceddouble-pedestal design. A great piece for fans ofmid-century or 20th-century decor. Solid construction and timeless look.",
-    price: "$110",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 6,
-    title: "Corner Desk with Cabinets",
-    description: "The ultimate ergonomic setup. This corner unitfeatures built-in side cabinets and a pull-outkeyboard tray to keep your desktop clutter-free. Perfect for gamers or home office pros.",
-    price: "$150",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 7,
-    title: "Vintage Wooden Desk",
-    description: "A high-quality vintage piece with a unique curved knee-hole design. Features six drawers and a beautifully polished grain. This is a heavy-duty, “forever” desk that looks great in a study or library.",
-    price: "$220",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  },
-
-  {
-    id: 8,
-    title: "Oak Desk",
-    description: "Elegant, contemporary Oak desk with slim legs and three sleek drawers. The light wood grain is stunning and fits perfectly with Scandi or modern minimalist decor. Could also be used as a premium console table in an entryway.",
-    price: "$300",
-    image: "https://img5.su-cdn.com/cdn-cgi/image/width=750,height=750/mall/file/2023/10/23/9e0f37a7886bdf2ccb4149b515b42a54.jpg"
-  }
-]
-
 function SearchResults()
 {
+  const [listings, setListings] = useState([])
+  const [sortBy, setSortBy] = useState("Best Match")
+  const [sortDropdown, setSortDropdown] = useState(false)
+  const [watchlist, setWatchlist] = useState(true)
+  const [quickview, setQuickview] = useState(false)
+  const [currentListing, setCurrentListing] = useState(0)
+
+  const [searchParams] = useSearchParams()
+  const query = searchParams.get("q")
+
+  useEffect(() =>
+  {
+    if (!query)
+    {
+      return alert("Search query is empty")
+    }
+    
+    fetch(`http://localhost:3000/search?query=${query}`)
+      .then((res) => res.json())
+      .then((data) => {setListings(data)})
+      .catch((err) => console.error(err))
+  }, [query])
+
+  const image = import.meta.glob('./assets/*.png', { eager: true, query: '?url'})
+
+  function fetchImagePath(filename)
+  {
+    const path = `./assets/${filename}`
+
+    return image[path].default
+  }
+
+  const watchlistToggle = (id) =>
+  {
+    setWatchlist(prev =>
+    ({
+      ...prev, [id]: !prev[id]
+    }))
+    console.log(`Watchlist status updated for id: ${id}`)
+  }
+
+  // Used for debugging in the case where data was not being displayed to the DOM
+  // listings.map((listing) => console.log(fetchImagePath(listing.image)))
+
   return (
   <div className="searchResultsPage">
+    {quickview &&
+              (
+                <div className="quickviewOverlay">
+                  <div className="quickviewMain">
+                    <button className="navLeft" onClick={() => setCurrentListing(prev => (prev - 1 + listings.length) % listings.length)}>
+                      <span>&#8592;</span>
+                    </button>
+
+                    <div className="quickviewListing">
+                      <div className="quickviewMainContent">
+                      <button className="closeQuickview" onClick={() => setQuickview(false)}>X</button>
+                      <div className="quickLeft">
+                        <img src={fetchImagePath(listings[currentListing].image)} className="quickviewImage"/>
+                        <div className="quickDetails">
+                          <div className="quickDetailsHeader">Product Details</div>
+                          <div className="detailsRow">
+                            <div className="quickLabel">Condition</div>
+                            <div className="quickValue">As is</div>
+                          </div>
+                          <div className="detailsRow">
+                            <div className="quickLabel">Dimensions</div>
+                            <div className="quickValue">W 75cm x H 75cm x D 34cm</div>
+                          </div>
+                          <div className="detailsRow">
+                            <div className="quickLabel">Shipping & pick-up</div>
+                            <div className="quickValue">Free - Pick-up only</div>
+                          </div>
+                          <div className="detailsRow">
+                            <div className="quickLabel">Payment Options</div>
+                            <div className="quickValue">Cash or NZ Bank Deposit</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="quickRight">
+                        <button className="quickWatchlist" onClick={() => watchlistToggle(listings[currentListing]._id)}>
+                          <img src={watchlist[listings[currentListing]._id] ? icon_binoculars_minus : icon_binoculars_plus}/>
+                        </button>
+                        <p className="quickTitle">Wooden Desk</p>
+                        <div className="listingTime">
+                          <img src={clock}/>
+                          <div className="dateTime">
+                            <p>Closes: Fri 13th March 8:22PM</p>
+                            <p className="exactTime">4 days, 4 hours, 50 minutes</p>
+                          </div>
+                        </div>
+                          <button className="addComparison">
+                            <img src={comparison}/>
+                            <p>Add to Comparison Table</p>
+                            <p>&#x21FE;</p>
+                          </button>
+                          <div className="bidArea">
+                            <div className="buyArea">
+                              <p className="buyNow">Buy Now</p>
+                              <div className="buyNowPrice">${listings[currentListing]?.price}</div>
+                              <button className="buyButton">Buy Now</button>
+                            </div>
+                            <div className="placeBid">
+                              <p className="startingPriceTitle">Starting price</p>
+                              <p className="startingPrice">$2.00</p>
+                              <div className="bidInfo">
+                                <p className="minBid">Min. starting bid: $2.00</p>
+                                <div className="bidFunction">
+                                  <input type="number" className="typeBid"></input>
+                                  <button className="bidButton">Place bid</button>
+                              </div>
+                              </div>
+                              <p className="generalText">No reserve</p>
+                              <p className="generalText">No bids</p>
+                            <div className="offer">
+                              <p>This seller is open to offers</p>
+                              <button className="offerButton">Make an offer</button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="fullDetails">
+                        <button className="fullDetailsButton">View Full Details</button>
+                      </div>
+                      </div>
+                      <button className="navRight" onClick={() => setCurrentListing(prev => (prev + 1) % listings.length)}>
+                      <span>&#8594;</span>
+                    </button>
+                    </div>
+                  </div>
+              )}
     <Header/>
     <div className="searchHeader">
-      <p className="paths">Home / Marketplace / Home & Living</p>
-      <p className="category">Home & Living</p>
+      <div className="paths">
+        <button className="homePath" onClick={() => window.location.href = "http://localhost:5173"}>Home</button>
+        <p> / Marketplace / Home & Living</p>
+      </div>
+      <p className="heading">Home & Living</p>
     </div>
-    
+
     <div className="filters">
-      <div className="labels">Refine</div>
-      <div className="labels">Category</div>
-      <div className="labels">All Locations</div>
-      <div className="labels">New & Used</div>
-      <div className="labels">Shipping: All</div>
+      <div className="labelsRefine">
+        <img src={filter}/>
+        <span>Refine &#x25BE;</span>
+      </div>
+      <div className="labels">Category &#x25BE;</div>
+      <div className="labels">All Locations &#x25BE;</div>
+      <div className="labels">New & Used &#x25BE;</div>
+      <div className="labels">Shipping: All &#x25BE;</div>
     </div>
     <div className="searchResultsMain">
       <div className="searchResultsHeader">
-        <div className="resultsShown">Showing 516 results for 'wooden desk'</div>
-        <div className="sorting">Sort</div>
+        <div className="resultsShown">Showing {listings.length} results for '{query}'</div>
+        <div className="sortingArea">
+        <button className="sorting" onClick={() => setSortDropdown(!sortDropdown)}>
+          <div>Sort: {sortBy}</div>
+          <div className="sortArrow">&#x25BE;</div>
+        </button>
+
+        {sortDropdown &&
+        (
+          <ul className="sortDropdown">
+            <li onClick={() => {setSortBy("Best Match"); setSortDropdown(false)}}>Best Match</li>
+            <li onClick={() => {setSortBy("Lowest Buy Now"); setSortDropdown(false)}}>Lowest Buy Now</li>
+          </ul>
+        )}
+      </div>
+
       </div>
       <div className="resultsGrid">
-        {auctionItems.map((item) =>
+        {listings.map((listing) =>
         (
-          <div key={item.id} className="itemCard">
-            <img src={item.image} alt={item.title} className="itemImage"/>
-            <div className="itemInfo">
-              <div className="itemTitle">{item.title}</div>
-              <div className="itemDescription">{item.description}</div>
-              <div className="itemPrice">{item.price}</div>
+          <div key={listing._id} className="listingCard">
+            <div className="imageArea">
+              <img src={fetchImagePath(listing.image)} alt={listing.title} className="listingImage"/>
+                <button className="leftIcon" onClick={() => {setQuickview(true); setCurrentListing(listings.findIndex(index => index._id === listing._id))}}>
+                  <img src={icon_eye}/>
+                </button>
+                <button className="rightIcon" onClick={() => watchlistToggle(listing._id)}>
+                  <img src={watchlist[listing._id] ? icon_binoculars_minus : icon_binoculars_plus}/>
+                </button>
+            </div>
+            <div className="listingInfo">
+              <div className="listingTitle">{listing.title}</div>
+              <div className="listingDescription">{listing.description}</div>
+              <div className="listingPrice">
+                <div className="buyNow">Buy now</div>
+                <div className="price">${listing.price}</div>
+              </div>
             </div>
           </div>
         ))}
@@ -120,7 +220,27 @@ function SearchResults()
     </div>
     <Footer/>
   </div>
+  
   )
 }
 
 export default SearchResults;
+
+// {quickview &&
+//               (
+//                 <div className="quickviewOverlay" onClick={() => setQuickview(false)}>
+//                   <div className="quickviewMain">
+//                     <button className="navLeft" onClick={() => setCurrentIndex(prev => (prev - 1 + listings.length) % listings.length)}>
+//                       <span>&#8592;</span>
+//                     </button>
+
+//                     <div>
+//                       <img src={fetchImagePath(listings[currentListing].image)} className="quickviewImage"/>
+//                     </div>
+
+//                     <button className="navRight" onClick={() => setCurrentIndex(prev => (prev + 1) % listings.length)}>
+//                       <span>&#8594;</span>
+//                     </button>
+//                   </div>
+//                 </div>
+//               )}

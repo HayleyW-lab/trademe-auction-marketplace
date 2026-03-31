@@ -43,6 +43,7 @@ The 'Search Results' page fetches a list of listings from the MongoDB Database a
 
 ### Routes
 **Frontend:** `http://localhost:5173/searchresults` *(This will be appended with the search query)*
+
 **Backend:** `GET /api/search`
 
 ---

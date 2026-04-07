@@ -1,6 +1,16 @@
 # Mission 5 phase 2 - Turners Robots
 
 ---
+
+## My Contribution
+This project was built as a team of four at Mission Ready. My personal contributions were:
+- **Homepage** — fetches and renders live product listings from MongoDB in a dynamic 4-column product grid, including product images, pricing, condition, location and watchlist functionality
+- **Header** — site-wide navigation header
+- **Footer** — site-wide footer
+- **Search Overlay** — search functionality overlay component
+  
+---
+
 ## Installation
 
 Run the following in the terminal within both the 'server' and 'client' folder directories to install all the necessary packages.
